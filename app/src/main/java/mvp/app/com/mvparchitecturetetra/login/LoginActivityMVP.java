@@ -12,15 +12,20 @@ public interface LoginActivityMVP {
 
         void inputError();
         void showSavedUserMsg();
+        void showUserNotAvailable();
 
     }
     interface Presenter{
 
         void setView(LoginActivityMVP.View view);
         void loginButtonClicked();
+        void getCurrentUser();
 
     }
     interface Model{
+
+        void createUser(String fname, String lname);
+        User getUser();
 
     }
 

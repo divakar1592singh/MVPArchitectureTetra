@@ -7,10 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import javax.inject.Inject;
+
 import mvp.app.com.mvparchitecturetetra.R;
 import mvp.app.com.mvparchitecturetetra.root.App;
 
 public class LoginActivity extends AppCompatActivity implements LoginActivityMVP.View{
+
+    @Inject
+    LoginActivityMVP.Presenter presenter;
 
     EditText etFirstName, etLastName;
     Button actionSubmit;
@@ -40,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityMVP
     protected void onResume() {
         super.onResume();
 
-
+        presenter.setView(this);
 
     }
 
@@ -84,5 +89,21 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityMVP
     @Override
     public void showSavedUserMsg() {
 
+    }
+
+    @Override
+    public void showUserNotAvailable() {
+        Snackbar.make(
+                findViewById(android.R.id.content),
+                "User not available!",
+                Snackbar.LENGTH_INDEFINITE)
+                .setAction(
+                        "Ok",
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {}
+                        })
+                .setActionTextColor(getResources().getColor(android.R.color.holo_orange_light))
+                .show();
     }
 }

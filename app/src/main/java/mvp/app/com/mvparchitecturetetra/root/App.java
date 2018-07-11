@@ -2,6 +2,8 @@ package mvp.app.com.mvparchitecturetetra.root;
 
 import android.app.Application;
 
+import mvp.app.com.mvparchitecturetetra.login.LoginModule;
+
 public class App extends Application{
 
     private ApplicationComponent component;
@@ -12,6 +14,7 @@ public class App extends Application{
 
         component = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this))
+                .loginModule(new LoginModule())
                 .build();
     }
 
