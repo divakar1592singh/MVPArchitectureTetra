@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityMVP
           @Override
           public void onClick(View v) {
 
-
+            presenter.loginButtonClicked();
           }
         });
     }
@@ -46,6 +46,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityMVP
         super.onResume();
 
         presenter.setView(this);
+        presenter.getCurrentUser();
 
     }
 
@@ -73,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityMVP
     public void inputError() {
         Snackbar.make(
                 findViewById(android.R.id.content),
-                "Can't be empty",
+                "First Name/Last Name can't be empty",
                 Snackbar.LENGTH_INDEFINITE)
                 .setAction(
                         "Ok",
@@ -88,7 +89,11 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityMVP
 
     @Override
     public void showSavedUserMsg() {
-
+        Snackbar.make(
+                findViewById(android.R.id.content),
+                "Data saved",Snackbar.LENGTH_SHORT)
+                .setActionTextColor(getResources().getColor(android.R.color.holo_orange_light))
+                .show();
     }
 
     @Override

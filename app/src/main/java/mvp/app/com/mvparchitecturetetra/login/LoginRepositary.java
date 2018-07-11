@@ -4,6 +4,6 @@ public interface LoginRepositary {
 
     User getUser();
 
-    void saveUser();
+    void saveUser(User user);
 
 }
