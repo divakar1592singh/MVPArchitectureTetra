@@ -1,4 +1,4 @@
-package mvp.app.com.mvparchitecturetetra;
+package mvp.app.com.mvparchitecturetetra.login;
 
 public interface LoginActivityMVP {
 

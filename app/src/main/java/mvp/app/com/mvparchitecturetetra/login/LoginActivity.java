@@ -1,4 +1,4 @@
-package mvp.app.com.mvparchitecturetetra;
+package mvp.app.com.mvparchitecturetetra.login;
 
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import mvp.app.com.mvparchitecturetetra.R;
+import mvp.app.com.mvparchitecturetetra.root.App;
 
 public class LoginActivity extends AppCompatActivity implements LoginActivityMVP.View{
 
@@ -16,6 +19,8 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityMVP
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        ((App) getApplication()).getComponent().inject(this);
 
         etFirstName = (EditText)findViewById(R.id.etFirstName);
         etLastName = (EditText)findViewById(R.id.etLastName);
