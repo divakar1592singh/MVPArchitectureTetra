@@ -4,13 +4,14 @@ import android.support.annotation.Nullable;
 
 public class LoginActivityPresenter implements LoginActivityMVP.Presenter {
 
-    @Nullable
-    private LoginActivityMVP.View view;
     private LoginActivityMVP.Model model;
 
     public LoginActivityPresenter(LoginActivityMVP.Model model) {
         this.model = model;
     }
+
+    @Nullable
+    private LoginActivityMVP.View view;
 
     @Override
     public void setView(LoginActivityMVP.View view) {
@@ -28,7 +29,6 @@ public class LoginActivityPresenter implements LoginActivityMVP.Presenter {
                 view.showSavedUserMsg();
             }
         }
-
     }
 
     @Override
@@ -44,7 +44,6 @@ public class LoginActivityPresenter implements LoginActivityMVP.Presenter {
             if(view != null){
                 view.setFirstName(user.getFirstName());
                 view.setLastName(user.getLastName());
-
             }
         }
 

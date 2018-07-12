@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityMVP
         etLastName = (EditText)findViewById(R.id.etLastName);
         actionSubmit = (Button)findViewById(R.id.actionSubmit);
 
-    actionSubmit.setOnClickListener(
+        actionSubmit.setOnClickListener(
         new View.OnClickListener() {
           @Override
           public void onClick(View v) {
@@ -111,4 +111,5 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityMVP
                 .setActionTextColor(getResources().getColor(android.R.color.holo_orange_light))
                 .show();
     }
+
 }
